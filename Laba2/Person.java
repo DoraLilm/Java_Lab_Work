@@ -1,3 +1,4 @@
+
 package Laba2;
 
 public class Person {
@@ -30,17 +31,25 @@ public class Person {
         return father;
     }
 
+    // Если фамилия отсутствует, берем ее у отца
+    public String getFullSurname() {
+        String surname = name.getSurname();
+
+        if ((surname == null || surname.isEmpty()) && father != null) {
+            return father.getFullSurname();
+        }
+
+        return surname;
+    }
+
     @Override
     public String toString() {
 
-        String surname = name.getSurname();
+        String surname = getFullSurname();
         String firstName = name.getFirstName();
         String patronymic = name.getPatronymic();
 
-        if ((surname == null || surname.isEmpty()) && father != null) {
-            surname = father.name.getSurname();
-        }
-
+        // Если отчество отсутствует, формируем его из имени отца
         if ((patronymic == null || patronymic.isEmpty()) && father != null) {
             String fatherFirstName = father.name.getFirstName();
 

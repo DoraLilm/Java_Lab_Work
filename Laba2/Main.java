@@ -164,7 +164,7 @@ public class Main {
         //  ЗАДАНИЕ 5.7
 
         System.out.println();
-        System.out.println("Задание 5.7 Длина Ломаной");
+        System.out.println("=== Задание 5.7. Длина Ломаной ===");
 
         Polyline lengthLine = new Polyline(
                 new Point(1, 5),
@@ -178,6 +178,7 @@ public class Main {
         System.out.println("Длина:");
         System.out.println(lengthLine.getLength());
 
+        // Добавляем новые точки и повторно вычисляем длину
         lengthLine.addPoints(
                 new Point(5, 15),
                 new Point(8, 10)

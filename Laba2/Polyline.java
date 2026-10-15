@@ -1,3 +1,4 @@
+
 package Laba2;
 
 import java.util.Arrays;
@@ -14,6 +15,7 @@ public class Polyline {
         this.points = points;
     }
 
+    // Создаем новый массив, чтобы добавить точки к существующим
     public void addPoints(Point... newPoints) {
 
         Point[] newArray = new Point[
@@ -31,6 +33,7 @@ public class Polyline {
         points = newArray;
     }
 
+    // Вычисляем расстояние между соседними точками по теореме Пифагора
     public double getLength() {
 
         double length = 0;

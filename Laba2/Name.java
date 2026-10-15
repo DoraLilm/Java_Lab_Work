@@ -24,6 +24,7 @@ public class Name {
         return patronymic;
     }
 
+    // Пропускаем отсутствующие части имени
     @Override
     public String toString() {
         String result = "";
