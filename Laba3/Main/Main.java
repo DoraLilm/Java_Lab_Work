@@ -1,53 +1,12 @@
-
 package Laba3.Main;
 
-import Laba3.Geometry.Models.*;
+import Laba3.Geometry.*;
 import Laba3.Tree.BinaryNode;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.Math.pow;
 
 public class Main {
-
-    public static double totalArea(Figure[] figures) {
-        double sum = 0;
-
-        for (Figure figure : figures) {
-            sum += figure.area();
-        }
-
-        return sum;
-    }
-
-    public static double sumLengths(LengthMeasurable[] objects) {
-        double sum = 0;
-
-        for (LengthMeasurable object : objects) {
-            sum += object.getLength();
-        }
-
-        return sum;
-    }
-
-    public static Polyline mergeAll(
-            PolygonalChainProvider[] providers
-    ) {
-        List<Point> points = new ArrayList<>();
-
-        for (PolygonalChainProvider provider : providers) {
-            Point[] chainPoints =
-                    provider.getPolygonalChain().getPoints();
-
-            for (Point point : chainPoints) {
-                points.add(point);
-            }
-        }
-
-        return new Polyline(points.toArray(new Point[0]));
-    }
 
     public static double power(String x, String y) {
         return pow(parseInt(x), parseInt(y));
@@ -56,9 +15,6 @@ public class Main {
     public static void main(String[] args) {
 
         // Задание 1. Номер 3. Квадрат.
-        // Условие: создать квадрат, получить его ломаную
-        // и продемонстрировать изменение длины ломаной.
-
         System.out.println(" Задание 1. Номер 3. Квадрат ");
 
         Square square = new Square(5, 3, 23);
@@ -92,11 +48,7 @@ public class Main {
             );
         }
 
-
         // Задание 2. Номер 4. Бинарное дерево.
-        // Условие: добавить значения, найти элемент,
-        // удалить элемент и вывести дерево по порядку.
-
         System.out.println("\n Задание 2. Номер 4. Бинарное дерево ");
 
         BinaryNode tree = new BinaryNode();
@@ -112,11 +64,7 @@ public class Main {
 
         System.out.println("После удаления 3: " + tree);
 
-
         // Задание 3. Номер 2. Замкнутая ломаная.
-        // Условие: вычислить длину ломаной с учётом
-        // расстояния от последней точки до первой.
-
         System.out.println("\n Задание 3. Номер 2. Замкнутая ломаная ");
 
         ClosedPolyline closedPolyline = new ClosedPolyline(
@@ -134,11 +82,7 @@ public class Main {
                 "Длина: " + closedPolyline.getLength()
         );
 
-
         // Задание 4. Номер 4. Фигуры.
-        // Условие: создать круг, квадрат, прямоугольник
-        // и треугольник, затем найти общую площадь.
-
         System.out.println("\n Задание 4. Номер 4. Фигуры ");
 
         Figure[] figures = {
@@ -159,14 +103,10 @@ public class Main {
         }
 
         System.out.println(
-                "Общая площадь: " + totalArea(figures)
+                "Общая площадь: " + TaskMethods.totalArea(figures)
         );
 
-
         // Задание 5. Номер 5. Измерение длины.
-        // Условие: использовать общий интерфейс для объектов,
-        // длину которых можно измерить, и найти сумму длин.
-
         System.out.println("\n Задание 5. Номер 5. Измерение длины ");
 
         LengthMeasurable[] measurable = {
@@ -189,14 +129,10 @@ public class Main {
         }
 
         System.out.println(
-                "Сумма длин: " + sumLengths(measurable)
+                "Сумма длин: " + TaskMethods.sumLengths(measurable)
         );
 
-
         // Задание 5. Номер 7. Объединение ломаных.
-        // Условие: объединить ломаные, полученные от разных
-        // объектов, реализующих PolygonalChainProvider.
-
         System.out.println("\n Задание 5. Номер 7. Объединение ломаных ");
 
         PolygonalChainProvider[] providers = {
@@ -212,18 +148,14 @@ public class Main {
                 )
         };
 
-        Polyline merged = mergeAll(providers);
+        Polyline merged = TaskMethods.mergeAll(providers);
 
         System.out.println("Объединённая ломаная: " + merged);
         System.out.println(
                 "Длина объединённой ломаной: " + merged.getLength()
         );
 
-
         // Задание 6. Номер 4. Сравнение ломаных.
-        // Условие: переопределить equals так, чтобы ломанные
-        // считались равными, если совпадают все их точки.
-
         System.out.println("\n Задание 6. Номер 4. Сравнение ломаных ");
 
         Polyline first = new Polyline(
@@ -254,28 +186,16 @@ public class Main {
                 "Первая и третья равны: " + first.equals(third)
         );
 
-
         // Задание 7. Номер 1. Пакеты.
-        // Условие: организовать классы по логическим группам
-        // и использовать единое имя пакета проекта.
-
         System.out.println("\n Задание 7. Номер 1. Пакеты ");
         System.out.println("Пакет проекта: Laba3");
-        System.out.println("Модели фигур находятся в классе Models.");
-
+        System.out.println("Модели фигур находятся в пакете Geometry.");
 
         // Задание 7. Номер 2. Главный метод.
-        // Условие: создать единственную точку входа программы
-        // public static void main(String[] args).
-
         System.out.println("\n Задание 7. Номер 2. Главный метод ");
         System.out.println("Точка входа: Main.main(String[] args)");
 
-
         // Задание 7. Номер 3. Возведение в степень.
-        // Условие: принять две строки, преобразовать их
-        // через Integer.parseInt и вычислить Math.pow.
-
         System.out.println("\n Задание 7. Номер 3. Возведение в степень");
 
         String x = args.length > 0 ? args[0] : "2";
@@ -291,11 +211,7 @@ public class Main {
             );
         }
 
-
         // Задание 8. Номер 4. Клонирование точки.
-        // Условие: создать копию точки и убедиться,
-        // что изменение копии не изменяет оригинал.
-
         System.out.println("\n Задание 8. Номер 4. Клонирование точки");
 
         Point original = new Point(7, 8);

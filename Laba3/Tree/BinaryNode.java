@@ -1,7 +1,6 @@
-
 package Laba3.Tree;
 
-// Бинарное дерево поиска.
+// Бинарное дерево поиска
 public class BinaryNode {
     private Integer value;
     private BinaryNode parent;
@@ -70,7 +69,7 @@ public class BinaryNode {
             return;
         }
 
-        // При двух потомках заменяем узел следующим по величине.
+        // При двух потомках заменяем узел следующим по величине
         if (left != null && right != null) {
             BinaryNode successor = right;
 
@@ -95,7 +94,7 @@ public class BinaryNode {
             child = right;
         }
 
-        // Корневой узел остаётся тем же объектом.
+        // Корневой узел остаётся тем же объектом
         if (parent == null) {
             if (child == null) {
                 value = null;
@@ -118,7 +117,7 @@ public class BinaryNode {
             return;
         }
 
-        // Удаляемый узел заменяется своим потомком, если он есть.
+        // Удаляемый узел заменяется своим потомком, если он есть
         if (parent.left == this) {
             parent.left = child;
         } else {
